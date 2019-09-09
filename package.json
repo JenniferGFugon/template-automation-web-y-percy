@@ -1,0 +1,21 @@
+{
+  "name": "dnow-tizen-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dnow": "./node_modules/.bin/wdio ./conf/wdio.conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "wdio-cucumber-framework": "^2.2.8",
+    "wdio-selenium-standalone-service": "0.0.12",
+    "wdio-spec-reporter": "^0.1.5",
+    "webdriverio": "^4.13.0"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
