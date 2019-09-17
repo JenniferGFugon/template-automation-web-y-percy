@@ -28,13 +28,31 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-        maxInstances: 5,
-        browserName: 'chrome',
-        chromeOptions: {
-            args: ['disable-web-security', 'user-data-dir="/tmp/chrome_dev_test"']
-        }
-    }],
+    // user: 'oscardaviddaz1',
+    // key: 'xLbJux3XxoBahT1xyGeU',
+    capabilities: [
+        {
+        //     maxInstances: 5,
+            browserName: 'chrome',
+            name: 'Testing Google in Chrome'
+        //     chromeOptions: {
+        //         args: ['disable-web-security', 'user-data-dir="/tmp/chrome_dev_test"']
+        //     }
+        }, 
+        {
+            browserName: 'firefox',
+            platform: 'macos',
+            name: 'Testing Google in firefox'
+        }, 
+        {
+            browserName: 'safari',
+            name: 'Testing Google in Safari'
+        }, 
+        // {
+        //     browserName: 'internet explorer',
+        //     name: 'Testing Google in Internet Explorer'
+        // }
+    ],
     //
     // ===================
     // Test Configurations
@@ -66,7 +84,8 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8080',
+    // baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://google.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
