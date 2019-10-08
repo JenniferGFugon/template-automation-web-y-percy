@@ -12,6 +12,7 @@
   "devDependencies": {
     "wdio-cucumber-framework": "^2.2.8",
     "wdio-selenium-standalone-service": "0.0.12",
+    "testrail-plan": "https://oauth2:s7qNEzRfWwjPkWUsJW8e@gitlab.com/hello-iconic/qa/test-rail-plan",
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.13.0"
   },
