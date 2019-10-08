@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "wdio-cucumber-framework": "^2.2.8",
+    "testrail-plan": "git+ssh://git@gitlab.com:hello-iconic/qa/test-rail-plan.git",
     "wdio-selenium-standalone-service": "0.0.12",
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.13.0"
