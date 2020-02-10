@@ -1,4 +1,23 @@
 exports.config = {
+    //
+    // ====================
+    // Runner Configuration
+    // ====================
+    //
+    // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
+    // on a remote machine).
+    runner: 'local',
+    path : '/wd/hub',
+    
+    //
+    // ==================
+    // Specify Test Files
+    // ==================
+    // Define which test specs should run. The pattern is relative to the directory
+    // from which `wdio` was called. Notice that, if you are calling `wdio` from an
+    // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
+    // directory is where your package.json resides, so `wdio` will be called from there.
+    //
     specs: [
         './tests/features/*.feature'
     ],
@@ -22,36 +41,21 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    // user: 'oscardaviddaz1',
-    // key: 'xLbJux3XxoBahT1xyGeU',
     capabilities: [
         {
-        //     maxInstances: 5,
-            browserName: 'chrome',
-            name: 'Testing Google in Chrome'
-        //     chromeOptions: {
-        //         args: ['disable-web-security', 'user-data-dir="/tmp/chrome_dev_test"']
-        //     }
-        }, 
-        {
+            maxInstances: 1,
             browserName: 'firefox',
-            platform: 'macos',
-            name: 'Testing Google in firefox'
-        }, 
+        },
         {
-            browserName: 'safari',
-            name: 'Testing Google in Safari'
-        }, 
-        // {
-        //     browserName: 'internet explorer',
-        //     name: 'Testing Google in Internet Explorer'
-        // }
+            maxInstances: 1,
+            browserName: 'chrome',
+        }
     ],
     //
     // ===================
@@ -60,7 +64,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    // logLevel: 'info',
+    logLevel: 'silent',
     //
     // Set specific log levels per logger
     // loggers:
@@ -84,14 +88,13 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    // baseUrl: 'http://localhost:8080',
     baseUrl: 'http://google.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
     //
     // Default timeout in milliseconds for request
-    // if Selenium Grid doesn't send response
+    // if browser driver or grid doesn't send response
     connectionRetryTimeout: 90000,
     //
     // Default request retries count
@@ -101,9 +104,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: ['chromedriver'],
     services: ['selenium-standalone'],
-    
+    port: 4444,
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
@@ -168,11 +170,12 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    before: function (capabilities, specs) {
+    before: function () {
         const chai = require('chai');
         global.expect = chai.expect;
         browser.url("/");
     },
+
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -193,12 +196,12 @@ exports.config = {
     /**
      * Runs before a Cucumber step
      */
-    // beforeStep: function (uri, feature) {
+    // beforeStep: function (uri, feature, stepData, context) {
     // },
     /**
      * Runs after a Cucumber step
      */
-    // afterStep: function (uri, feature, { error, result }) {
+    // afterStep: function (uri, feature, { error, result, duration, passed }, stepData, context) {
     // },
     /**
      * Runs after a Cucumber scenario
