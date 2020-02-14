@@ -1,8 +1,10 @@
 const { Given, When, Then } = require('cucumber');
+let loginPage = require('../pages/login.page.js')
 
 // @freeFormOnboarding.welcomeScreen.HP
 Given(/^a user that go to google$/, function () {
   browser.pause(20000);
+  loginPage.LoginAssertions()
 })
 When(/^the page loads$/, function () {
   browser.pause(20000);
