@@ -1,0 +1,8 @@
+{
+    "include": [
+      "./tests/**/*.js",
+      "./tests/**/*.json",
+      "./node_modules/@wdio/sync",
+      "./node_modules/@wdio/cucumber-framework"
+    ]
+  }

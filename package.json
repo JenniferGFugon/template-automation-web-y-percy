@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "andrea": "wdio ./conf/wdio.conf.js"
+    "test": "wdio ./conf/wdio.conf.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +18,7 @@
     "chromedriver": "^80.0.0"
   },
   "dependencies": {
+    "@wdio/sync": "^5.18.7",
     "webdriverio": "^5.18.6"
   }
 }
