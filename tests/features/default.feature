@@ -7,4 +7,5 @@ Feature: Template Test
     Scenario: Hello World for Testing
         Given a user that go to google
         And the page loads
-        Then be able to automate the site
+        When the user type Hello iconic
+        Then the user should see the hello iconic page searched and positioned as a first

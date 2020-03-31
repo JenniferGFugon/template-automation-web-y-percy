@@ -3,6 +3,7 @@ const SELECTORS = {
     LOGIN_BUTTON: '#loginButton',
     EMAIL_INPUT: '#email-input',
     PASSWORD_INPUT: '#password-input',
+    SEARCH:'#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input'
 
 }
 
@@ -18,6 +19,21 @@ class LoginPage {
         return $(SELECTORS.PASSWORD_INPUT)
     }
 
+    get Search() {
+        return $(SELECTORS.SEARCH)
+    }
+    SearchAssertion()
+    {
+        expect(this.Search.isExisting()).to.be.true
+        
+    }
+
+    Searchaction()
+    {
+        this.Search.setValue('Hello iconic')
+        browser.keys('Enter'); 
+
+    }
     LoginAssertions() {
         this.loginButton.waitForDisplayed(undefined)
         expect(this.EmailInput.isExisting()).to.be.true
