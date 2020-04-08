@@ -2,6 +2,9 @@ exports.config = {
     specs: [
         './tests/features/*.feature'
     ],
+
+    runner: 'local',
+    path : '/wd/hub',
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -31,9 +34,6 @@ exports.config = {
     capabilities: [{
         maxInstances: 5,
         browserName: 'chrome',
-        chromeOptions: {
-            args: ['disable-web-security', 'user-data-dir="/tmp/chrome_dev_test"']
-        }
     }],
     //
     // ===================
@@ -53,10 +53,8 @@ exports.config = {
     // - @wdio/sumologic-reporter
     // - @wdio/cli, @wdio/config, @wdio/sync, @wdio/utils
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    // logLevels: {
-    //     webdriver: 'info',
-    //     '@wdio/applitools-service': 'info'
-    // },
+    logLevel: 'silent',
+    //
     //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
@@ -66,7 +64,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://google.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -84,6 +82,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     // services: ['chromedriver'],
     services: ['selenium-standalone'],
+    port: 4444,
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
