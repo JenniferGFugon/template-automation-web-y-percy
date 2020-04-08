@@ -21,6 +21,9 @@ exports.config = {
     specs: [
         './tests/features/*.feature'
     ],
+
+    runner: 'local',
+    path : '/wd/hub',
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -47,16 +50,10 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [
-        {
-            maxInstances: 1,
-            browserName: 'firefox',
-        },
-        {
-            maxInstances: 1,
-            browserName: 'chrome',
-        }
-    ],
+    capabilities: [{
+        maxInstances: 5,
+        browserName: 'chrome',
+    }],
     //
     // ===================
     // Test Configurations
@@ -75,10 +72,8 @@ exports.config = {
     // - @wdio/sumologic-reporter
     // - @wdio/cli, @wdio/config, @wdio/sync, @wdio/utils
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    // logLevels: {
-    //     webdriver: 'info',
-    //     '@wdio/applitools-service': 'info'
-    // },
+    logLevel: 'silent',
+    //
     //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
@@ -106,6 +101,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     services: ['selenium-standalone'],
     port: 4444,
+    
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
