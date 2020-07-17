@@ -32,10 +32,9 @@ class LoginPage {
     {
         this.Search.setValue('Hello iconic')
         browser.keys('Enter'); 
-
     }
     LoginAssertions() {
-        this.loginButton.waitForDisplayed(undefined)
+        this.loginButton.waitForDisplayed()
         expect(this.EmailInput.isExisting()).to.be.true
         expect(this.PasswordInput.isExisting()).to.be.true
     }
