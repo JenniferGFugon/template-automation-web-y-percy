@@ -9,15 +9,15 @@
   "author": "QA",
   "license": "ISC",
   "devDependencies": {
-    "@wdio/cli": "^6.3.0",
-    "@wdio/cucumber-framework": "^6.3.0",
-    "@wdio/local-runner": "^6.3.0",
-    "@wdio/selenium-standalone-service": "^6.1.14",
-    "@wdio/spec-reporter": "^6.3.0",
-    "@wdio/sync": "^6.3.0",
+    "@wdio/cli": "^6.12.1",
+    "@wdio/cucumber-framework": "^6.11.1",
+    "@wdio/local-runner": "^6.12.1",
+    "@wdio/selenium-standalone-service": "^6.12.1",
+    "@wdio/spec-reporter": "^6.11.0",
+    "@wdio/sync": "^6.11.0",
     "chai": "^4.2.0"
   },
   "dependencies": {
-    "webdriverio": "^6.3.0"
+    "webdriverio": "^6.12.1"
   }
 }

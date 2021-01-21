@@ -3,12 +3,13 @@ const SELECTORS = {
     LOGIN_BUTTON: '#loginButton',
     EMAIL_INPUT: '#email-input',
     PASSWORD_INPUT: '#password-input',
-    SEARCH:'#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input'
+    SEARCH_INPUT:'#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input'
 
 }
 
 class LoginPage {
 
+    // Selector variables
     get loginButton() {
         return $(SELECTORS.LOGIN_BUTTON)
     }
@@ -18,19 +19,16 @@ class LoginPage {
     get PasswordInput() {
         return $(SELECTORS.PASSWORD_INPUT)
     }
-
-    get Search() {
-        return $(SELECTORS.SEARCH)
-    }
-    SearchAssertion()
-    {
-        expect(this.Search.isExisting()).to.be.true
-        
+    get SearchInput() {
+        return $(SELECTORS.SEARCH_INPUT)
     }
 
-    Searchaction()
-    {
-        this.Search.setValue('Hello iconic')
+    // Methods/Functions
+    SearchAssertion(){
+        expect(this.SearchInput.isDisplayed()).to.be.true
+    }
+    SearchText(textToSearch){
+        this.SearchInput.setValue(textToSearch)
         browser.keys('Enter'); 
     }
     LoginAssertions() {
