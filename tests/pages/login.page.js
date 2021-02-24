@@ -3,7 +3,7 @@ const SELECTORS = {
     LOGIN_BUTTON: '#loginButton',
     EMAIL_INPUT: '#email-input',
     PASSWORD_INPUT: '#password-input',
-    SEARCH_INPUT:'#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input'
+    SEARCH_INPUT:'input.gLFyf.gsfi'
 
 }
 

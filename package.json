@@ -15,7 +15,9 @@
     "@wdio/selenium-standalone-service": "^6.12.1",
     "@wdio/spec-reporter": "^6.11.0",
     "@wdio/sync": "^6.11.0",
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "chromedriver": "^88.0.0",
+    "wdio-chromedriver-service": "^7.0.0"
   },
   "dependencies": {
     "webdriverio": "^6.12.1"
