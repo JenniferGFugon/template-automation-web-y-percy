@@ -1,30 +1,31 @@
-const SELECTORS = {
 
-    LOGIN_BUTTON: '#loginButton',
-    EMAIL_INPUT: '#email-input',
-    PASSWORD_INPUT: '#password-input',
-    SEARCH_INPUT:'input.gLFyf.gsfi'
+// import Page from './page.js';
+const Page = require("./page.js")
 
-}
-
-class LoginPage {
+class GooglePage extends Page {
 
     // Selector variables
     get loginButton() {
-        return $(SELECTORS.LOGIN_BUTTON)
+        return $('#loginButton')
     }
     get EmailInput() {
-        return $(SELECTORS.EMAIL_INPUT)
+        return $('#email-input')
     }
     get PasswordInput() {
-        return $(SELECTORS.PASSWORD_INPUT)
+        return $('#password-input')
     }
     get SearchInput() {
-        return $(SELECTORS.SEARCH_INPUT)
+        return $('input.gLFyf.gsfi')
+    }
+    get SearchResult() {
+        return $('.LC20lb.DKV0Md')
     }
 
     // Methods/Functions
-    SearchAssertion(){
+    open(path) {
+        return super.open(path);
+    }
+    SearchBoxAssertion(){
         expect(this.SearchInput.isDisplayed()).to.be.true
     }
     SearchText(textToSearch){
@@ -44,4 +45,4 @@ class LoginPage {
     }
 }
 
-module.exports = new LoginPage()
+module.exports = new GooglePage();

@@ -1,14 +1,13 @@
-const { When } = require('cucumber');
-let loginPage = require('../pages/login.page.js')
+const { When } = require('@cucumber/cucumber');
+const googlePage = require('../pages/google.page.js')
 
 
 When(/^the page loads$/, function () {
-  browser.pause(2000);
-  loginPage.SearchAssertion()
+  googlePage.SearchInput.waitForDisplayed();
 })
-When(/^the user type Hello iconic$/, function () {
-  loginPage.SearchText('Hello iconic')
-  console.log("Congratulations, you are ready to Automate :D")
-  browser.pause(2000)
+
+When('the user type {string}', function (keyword) {
+  googlePage.SearchText(keyword)
+  browser.pause(1000)
 })
  
