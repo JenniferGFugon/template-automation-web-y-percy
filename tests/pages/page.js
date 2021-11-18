@@ -1,7 +1,7 @@
 
 class Page {
 
-    open (path) {
+    async open (path) {
         return browser.url(path)
     }
 }
