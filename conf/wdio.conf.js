@@ -57,14 +57,14 @@ exports.config = {
             browserName: 'chrome',
             acceptInsecureCerts: true
         },
-        {
-            // maxInstances: 5,
-            browserName: 'firefox',
-        },
-        {
-            // maxInstances: 5,
-            browserName: 'safari',
-        }
+        // {
+        //     // maxInstances: 5,
+        //     browserName: 'firefox',
+        // },
+        // {
+        //     // maxInstances: 5,
+        //     browserName: 'safari',
+        // }
     ],
     //
     // ===================
@@ -98,7 +98,7 @@ exports.config = {
     waitforTimeout: 10000,
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    specFileRetries: 1,
+    specFileRetries: 0,
     // Whether or not retried specfiles should be retried immediately or deferred to the end of the queue
     specFileRetriesDeferred: false,
     //
@@ -106,7 +106,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+    services: ['chromedriver'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -158,7 +158,7 @@ exports.config = {
      strict: false,
 
      // <string> (expression) only execute the features or scenarios with tags matching the expression
-     tagExpression: '',
+     tagExpression: 'not @pending',
 
      // <number> timeout for step definitions
      timeout: 60000,
@@ -201,8 +201,8 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function () {
-        const chai = require('chai');
-        global.expect = chai.expect;
+        // const chai = require('chai');
+        // global.expect = chai.expect;
     },
 
     /**
