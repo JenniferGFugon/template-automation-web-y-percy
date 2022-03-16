@@ -16,8 +16,8 @@
     "@wdio/spec-reporter": "^7.16.4",
     "@wdio/sync": "^7.16.8",
     "chai": "^4.3.4",
-    "chromedriver": "^96.0.0",
-    "wdio-chromedriver-service": "^7.2.2"
+    "chromedriver": "^99.0.0",
+    "wdio-chromedriver-service": "^7.2.8"
   },
   "dependencies": {
     "@wdio/codemod": "^0.9.1",
