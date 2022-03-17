@@ -16,10 +16,11 @@
     "@wdio/spec-reporter": "^7.17.3",
     "chai": "^4.3.6",
     "chromedriver": "^99.0.0",
-    "wdio-chromedriver-service": "^7.2.8"
+    "wdio-chromedriver-service": "^7.3.0"
   },
   "dependencies": {
     "@wdio/codemod": "^0.10.1",
-    "jscodeshift": "^0.13.1"
+    "jscodeshift": "^0.13.1",
+    "latest": "^0.2.0"
   }
 }
