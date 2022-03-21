@@ -124,6 +124,11 @@ exports.config = {
   //
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
+    "cucumberautocomplete.steps": [
+      "test/features/step_definitions/*.js",
+      "node_modules/qa-lib/src/step_definitions/*.js",
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true,
     require: ["./tests/stepDefinitions/*.js"],
 
     // <boolean> show full backtrace for errors

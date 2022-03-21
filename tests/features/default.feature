@@ -12,7 +12,7 @@ Feature: Template Test
         When the user type "Hello iconic"
         Then the user should see the hello iconic page searched and positioned as a first
         
-    
+        
     Scenario Outline: Sauce Labs Demo Page Login
         Given a user at "Swag Labs" login page
         When the user types "<user>" in the username input

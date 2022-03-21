@@ -7,7 +7,6 @@ Feature: Cart Test
     Background:
         Given a user at "Swag Labs" login page
     
-    
     Scenario Outline:Add items to the shopping cart-HP
         Given a user at "Swag Labs" home page
         When the user clicks on the add to cart button of  the first product
@@ -15,13 +14,11 @@ Feature: Cart Test
         Then the product is added to  the shopping cart
         And the shopping cart icon increment.
 
-    
     Scenario Outline:Product is not added to the shopping cart_SP
         Given a user at "Swag Labs" home page
         When the user clicks to add the first product        
         And the user clicks to add the second product
         Then the product is not added
-
 
     Scenario Outline:Complete checkout-HP
         Given a user at "Swag Labs" checkout page
@@ -37,8 +34,7 @@ Feature: Cart Test
             | firstname               | lastname    | postal_code  |  behavior                         |
             | jennifer                | guerrero    |  12111       |  CHECKOUT: COMPLETE!              |   
 
-    
-    Scenario Outline:The zip code is missing in the checkout-SP
+    Scenario Outline:The postal code is missing in the checkout-SP
         Given a user at "Swag Labs" checkout page
         When the user clicks the checkout button
         And the user types "<firstname>" in the the firstname input

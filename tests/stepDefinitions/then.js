@@ -74,5 +74,5 @@ Then("the product is not added", async function () {
 
 Then("the user  should see {string} message", async function (behavior) {
   expect(await sauceLabCheckoutPage.spanTitle).toHaveText(behavior);
-  await browser.pause(2000);
+  await browser.pause(1000);
 });

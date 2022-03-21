@@ -62,23 +62,23 @@ class SauceLabHomePage extends Page {
   }
   //products to add to the shopping cart
   async ClickFirstProduct() {
-    await (await this.product1).waitForDisplayed();
-    await (await this.product1).click();
+    await this.product1.waitForDisplayed();
+    await this.product1.click();
   }
   async ClickSecondProduct() {
-    await (await this.product2).waitForDisplayed();
-    await (await this.product2).click();
+    await this.product2.waitForDisplayed();
+    await this.product2.click();
   }
   async ClickDeleteProduct1() {
-    await (await this.removeProduct1).waitForDisplayed();
-    await (await this.removeProduct1).click();
+    await this.removeProduct1.waitForDisplayed();
+    await this.removeProduct1.click();
   }
   async ClickDeleteProduct2() {
-    await (await this.removeProduct2).waitForDisplayed();
-    await (await this.removeProduct2).click();
+    await this.removeProduct2.waitForDisplayed();
+    await this.removeProduct2.click();
   }
   async SetSpamBadge() {
-    await (await this.shoppingCartBadge).setValue(0);
+    await this.shoppingCartBadge.setValue(0);
   }
   async ResetApp() {
     await this.hamburguerMenu.click();

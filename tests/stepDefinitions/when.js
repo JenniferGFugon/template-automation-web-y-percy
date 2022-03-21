@@ -48,26 +48,26 @@ When(
 //products not added to shopping cart
 When("the user clicks to add the first product", async function () {
   await sauceLabCartPage.ClickFirstProduct();
-  await sauceLabCartPage.ClickDeleteProduct1();
   await browser.pause(2000);
+
+  await sauceLabCartPage.ClickDeleteProduct1();
 });
 When(/^the user clicks to add the second product$/, async function () {
   await sauceLabCartPage.ClickSecondProduct();
-  await sauceLabCartPage.ClickDeleteProduct2();
   await browser.pause(2000);
+  await sauceLabCartPage.ClickDeleteProduct2();
 });
 
 //checkout
 When("the user clicks the checkout button", async function () {
   expect(await sauceLabCheckoutPage.ClickCheckoutButton());
-  await browser.pause(2000);
+  await browser.pause(1000);
 });
 
 When(
   "the user types {string} in the the firstname input",
   async function (firstname) {
     await sauceLabCheckoutPage.SetFirstname(firstname);
-    await browser.pause(1000);
   }
 );
 
@@ -75,7 +75,6 @@ When(
   "the user types {string} in the the lastname input",
   async function (lastname) {
     await sauceLabCheckoutPage.SetLasttname(lastname);
-    await browser.pause(1000);
   }
 );
 
@@ -83,12 +82,10 @@ When(
   "the user types {string} in the the postal code input",
   async function (postalcode) {
     await sauceLabCheckoutPage.SetPostalCode(postalcode);
-    await browser.pause(1000);
   }
 );
 When("the user clicks on continue button", async function () {
   await sauceLabCheckoutPage.ClickContinueButton();
-  await browser.pause(1000);
 });
 When("the user clicks on finish button", async function () {
   await sauceLabCheckoutPage.ClickfinishButton();
