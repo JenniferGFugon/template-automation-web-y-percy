@@ -18,7 +18,7 @@ Given("a user at {string} login page", async function (websiteName) {
     await sauceLabHomePage.doLogout();
     expect(browser).toHaveTitle(websiteName);
   } else {
-    await sauceLabLoginPage.open("https://www.saucedemo.com");
+    await sauceLabLoginPage.open("/");
     expect(browser).toHaveTitle(websiteName);
     await sauceLabLoginPage.usernameInput.waitForDisplayed();
     await sauceLabLoginPage.passwordInput.waitForDisplayed();
