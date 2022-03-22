@@ -48,19 +48,26 @@ When(
 //products not added to shopping cart
 When("the user clicks to add the first product", async function () {
   await sauceLabCartPage.ClickFirstProduct();
+
+  // Usar WaitForDisplayed en vez de browser.pause
   await browser.pause(2000);
 
   await sauceLabCartPage.ClickDeleteProduct1();
 });
 When(/^the user clicks to add the second product$/, async function () {
   await sauceLabCartPage.ClickSecondProduct();
+  
+  // Usar WaitForDisplayed en vez de browser.pause
   await browser.pause(2000);
+  
   await sauceLabCartPage.ClickDeleteProduct2();
 });
 
 //checkout
 When("the user clicks the checkout button", async function () {
   expect(await sauceLabCheckoutPage.ClickCheckoutButton());
+
+  // Usar WaitForDisplayed en vez de browser.pause
   await browser.pause(1000);
 });
 
