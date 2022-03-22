@@ -56,23 +56,20 @@ Then(
 Then("the product is added to  the shopping cart", async function () {
   expect(await sauceLabCartPage.removeProduct1).toHaveText("REMOVE");
   expect(await sauceLabCartPage.removeProduct2).toHaveText("REMOVE");
-  await browser.pause(1000);
 });
 
 Then("the shopping cart icon increment.", async function () {
   expect(await sauceLabCartPage.shoppingCartBadge).toHaveText("2");
-  await browser.pause(1000);
+  await sauceLabHomePage.ResetApp();
 });
 
 Then("the product is not added", async function () {
   expect(await sauceLabCartPage.product1).toHaveText("ADD TO CART");
   expect(await sauceLabCartPage.product2).toHaveText("ADD TO CART");
-  await browser.pause(1000);
 });
 
 //checkout
 
 Then("the user  should see {string} message", async function (behavior) {
   expect(await sauceLabCheckoutPage.spanTitle).toHaveText(behavior);
-  await browser.pause(1000);
 });

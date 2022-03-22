@@ -48,32 +48,24 @@ When(
 //products not added to shopping cart
 When("the user clicks to add the first product", async function () {
   await sauceLabCartPage.ClickFirstProduct();
-
-  // Usar WaitForDisplayed en vez de browser.pause
-  await browser.pause(2000);
-
   await sauceLabCartPage.ClickDeleteProduct1();
 });
 When(/^the user clicks to add the second product$/, async function () {
   await sauceLabCartPage.ClickSecondProduct();
-  
-  // Usar WaitForDisplayed en vez de browser.pause
-  await browser.pause(2000);
-  
   await sauceLabCartPage.ClickDeleteProduct2();
 });
 
 //checkout
 When("the user clicks the checkout button", async function () {
-  expect(await sauceLabCheckoutPage.ClickCheckoutButton());
-
+  await sauceLabCheckoutPage.ChechOutButton.waitForDisplayed();
+  await sauceLabCheckoutPage.ClickCheckoutButton();
   // Usar WaitForDisplayed en vez de browser.pause
-  await browser.pause(1000);
 });
 
 When(
   "the user types {string} in the the firstname input",
   async function (firstname) {
+    await sauceLabCheckoutPage.firstname.waitForDisplayed();
     await sauceLabCheckoutPage.SetFirstname(firstname);
   }
 );
@@ -81,6 +73,7 @@ When(
 When(
   "the user types {string} in the the lastname input",
   async function (lastname) {
+    await sauceLabCheckoutPage.lastname.waitForDisplayed();
     await sauceLabCheckoutPage.SetLasttname(lastname);
   }
 );
@@ -88,13 +81,15 @@ When(
 When(
   "the user types {string} in the the postal code input",
   async function (postalcode) {
+    await sauceLabCheckoutPage.postalCode.waitForDisplayed();
     await sauceLabCheckoutPage.SetPostalCode(postalcode);
   }
 );
 When("the user clicks on continue button", async function () {
+  await sauceLabCheckoutPage.continueButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickContinueButton();
 });
 When("the user clicks on finish button", async function () {
+  await sauceLabCheckoutPage.finishButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickfinishButton();
-  await browser.pause(1000);
 });
