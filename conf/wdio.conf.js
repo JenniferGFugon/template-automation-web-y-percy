@@ -19,7 +19,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
-  specs: ["./tests/features/*.feature"],
+  specs: ["./tests/features/cart.feature"],
 
   // Patterns to exclude.
   exclude: [
@@ -203,10 +203,10 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
-  before: function () {
-    // const chai = require('chai');
-    // global.expect = chai.expect;
-  },
+  // before: function () {
+  //   // const chai = require('chai');
+  //   // global.expect = chai.expect;
+  // },
 
   /**
    * Runs before a WebdriverIO command gets executed.

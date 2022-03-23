@@ -59,7 +59,7 @@ When(/^the user clicks to add the second product$/, async function () {
 When("the user clicks the checkout button", async function () {
   await sauceLabCheckoutPage.ChechOutButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickCheckoutButton();
-  // Usar WaitForDisplayed en vez de browser.pause
+  
 });
 
 When(
@@ -67,6 +67,7 @@ When(
   async function (firstname) {
     await sauceLabCheckoutPage.firstname.waitForDisplayed();
     await sauceLabCheckoutPage.SetFirstname(firstname);
+    // await browser.pause(2000)
   }
 );
 
@@ -75,6 +76,7 @@ When(
   async function (lastname) {
     await sauceLabCheckoutPage.lastname.waitForDisplayed();
     await sauceLabCheckoutPage.SetLasttname(lastname);
+    // await browser.pause(2000)
   }
 );
 
@@ -83,13 +85,16 @@ When(
   async function (postalcode) {
     await sauceLabCheckoutPage.postalCode.waitForDisplayed();
     await sauceLabCheckoutPage.SetPostalCode(postalcode);
+    // await browser.pause(2000)
   }
 );
 When("the user clicks on continue button", async function () {
   await sauceLabCheckoutPage.continueButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickContinueButton();
+  // await browser.pause(2000)
 });
 When("the user clicks on finish button", async function () {
   await sauceLabCheckoutPage.finishButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickfinishButton();
+  // await browser.pause(2000)
 });
