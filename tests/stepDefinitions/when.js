@@ -3,7 +3,7 @@ const googlePage = require("../pages/google.page.js");
 const sauceLabLoginPage = require("../pages/sauceLab.login.page.js");
 const sauceLabCheckoutPage = require("../pages/sauceLab.checkout.page");
 const sauceLabHomePage = require("../pages/sauceLab.home.page.js");
-
+let sumProducts = 0;
 // Google website
 When(/^the page loads$/, async function () {
   await googlePage.SearchInput.waitForDisplayed();
@@ -61,6 +61,14 @@ When(/^the user clicks to add the second product$/, async function () {
 //checkout
 When("the user clicks the checkout button", async function () {
   await sauceLabHomePage.validateProductsAreAdded();
+  //sum the total , because with this total will be validated
+  this.sumProducts = await sauceLabCheckoutPage.sumPrices();
+  expect(await sauceLabHomePage.nameProduct1.getText()).toEqual(
+    await sauceLabCheckoutPage.nameProduct1.getText()
+  );
+  expect(await sauceLabHomePage.nameProduct2.getText()).toEqual(
+    await sauceLabCheckoutPage.nameProduct2.getText()
+  );
   await sauceLabCheckoutPage.ChechOutButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickCheckoutButton();
 });
@@ -93,6 +101,19 @@ When("the user clicks on continue button", async function () {
   await sauceLabCheckoutPage.ClickContinueButton();
 });
 When("the user clicks on finish button", async function () {
+  expect(await sauceLabCheckoutPage.paymentInformation.getText()).toEqual(
+    "SauceCard #31337"
+  );
+  expect(await sauceLabCheckoutPage.shippingInformation.getText()).toEqual(
+    "FREE PONY EXPRESS DELIVERY!"
+  );
+  expect(await sauceLabCheckoutPage.getTotalPurchase()).toEqual(
+    this.sumProducts
+  );
+  expect(await sauceLabCheckoutPage.getTaxes()).toEqual(
+    sauceLabCheckoutPage.tax()
+  );
+
   await sauceLabCheckoutPage.finishButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickfinishButton();
 });

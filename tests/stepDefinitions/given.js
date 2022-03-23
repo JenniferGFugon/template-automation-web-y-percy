@@ -3,6 +3,7 @@ const googlePage = require("../pages/google.page.js");
 const sauceLabLoginPage = require("../pages/sauceLab.login.page.js");
 const sauceLabHomePage = require("../pages/sauceLab.home.page.js");
 const sauceLabCheckoutPage = require("../pages/sauceLab.checkout.page.js");
+const { sumPrices } = require("../pages/sauceLab.checkout.page.js");
 
 // Google website
 Given(/^a user at google$/, async function () {
@@ -43,4 +44,6 @@ Given("a user at {string} checkout page", async function (websiteName) {
   await sauceLabHomePage.AddProducts();
   await sauceLabHomePage.validateProductsAreAdded();
   await sauceLabCheckoutPage.open("/cart.html");
+
+  //await sauceLabCheckoutPage.sumPrices();
 });

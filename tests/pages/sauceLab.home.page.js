@@ -45,7 +45,12 @@ class SauceLabHomePage extends Page {
   get closeMenuButton() {
     return $("#react-burger-cross-btn");
   }
-
+  get nameProduct1() {
+    return $("#item_4_title_link");
+  }
+  get nameProduct2() {
+    return $("#item_0_title_link");
+  }
   // Methods/Functions
   open(path) {
     return super.open(path);
