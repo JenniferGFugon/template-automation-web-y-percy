@@ -3,7 +3,6 @@ const googlePage = require("../pages/google.page.js");
 const sauceLabLoginPage = require("../pages/sauceLab.login.page.js");
 const sauceLabHomePage = require("../pages/sauceLab.home.page.js");
 const sauceLabCheckoutPage = require("../pages/sauceLab.checkout.page.js");
-const sauceLabCartPage = require("../pages/sauceLab.cart.page.js");
 
 // Google website
 Then(
@@ -54,18 +53,14 @@ Then(
 //add products to shopping cart
 
 Then("the product is added to  the shopping cart", async function () {
-  expect(await sauceLabCartPage.removeProduct1).toHaveText("REMOVE");
-  expect(await sauceLabCartPage.removeProduct2).toHaveText("REMOVE");
-});
-
-Then("the shopping cart icon increment.", async function () {
-  expect(await sauceLabCartPage.shoppingCartBadge).toHaveText("2");
+  expect(await sauceLabCheckoutPage.removeProduct1).toHaveText("REMOVE");
+  expect(await sauceLabCheckoutPage.removeProduct2).toHaveText("REMOVE");
   await sauceLabHomePage.ResetApp();
 });
 
-Then("the product is not added", async function () {
-  expect(await sauceLabCartPage.product1).toHaveText("ADD TO CART");
-  expect(await sauceLabCartPage.product2).toHaveText("ADD TO CART");
+Then("the product is not added to the shopping cart", async function () {
+  expect(await sauceLabCheckoutPage.product1).toHaveText("ADD TO CART");
+  expect(await sauceLabCheckoutPage.product2).toHaveText("ADD TO CART");
 });
 
 //checkout

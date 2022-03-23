@@ -26,6 +26,7 @@ class SauceLabCheckoutPage extends Page {
   get spanTitle() {
     return $("span.title");
   }
+
   // Methods/Functions
   open(path) {
     return super.open(path);

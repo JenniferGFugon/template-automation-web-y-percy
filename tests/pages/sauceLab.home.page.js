@@ -86,6 +86,16 @@ class SauceLabHomePage extends Page {
     await this.resetButton.waitForClickable();
     await this.resetButton.click();
   }
+  async AddProducts() {
+    await this.product1.waitForClickable();
+    await this.ClickFirstProduct();
+    await this.product2.waitForClickable();
+    await this.ClickSecondProduct();
+  }
+
+  async validateProductsAreAdded() {
+    expect(await this.shoppingCartBadge.getText()).toEqual("2");
+  }
 }
 
 module.exports = new SauceLabHomePage();

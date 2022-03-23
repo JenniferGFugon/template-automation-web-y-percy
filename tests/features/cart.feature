@@ -19,11 +19,8 @@ Feature: Cart Test
         Then the user  should see "CHECKOUT: COMPLETE!" message 
 
     
-    Scenario Outline:The postal code is missing in the checkout-SP
-        # Validar en este Given que el carrito incremento de items estando en Homepage
+    Scenario:The postal code is missing in the checkout-SP
         Given a user at "Swag Labs" checkout page
-        # Validar en este When que tenemos agregados items ya estando en el checkout page
-        # antes de hacerle click al checkout button
         When the user clicks the checkout button
         And the user types "jennifer" in the the firstname input
         And the user types "guerrero" in the the lastname input

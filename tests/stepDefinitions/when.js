@@ -2,7 +2,7 @@ const { When } = require("@cucumber/cucumber");
 const googlePage = require("../pages/google.page.js");
 const sauceLabLoginPage = require("../pages/sauceLab.login.page.js");
 const sauceLabCheckoutPage = require("../pages/sauceLab.checkout.page");
-const sauceLabCartPage = require("../pages/sauceLab.cart.page.js");
+const sauceLabHomePage = require("../pages/sauceLab.home.page.js");
 
 // Google website
 When(/^the page loads$/, async function () {
@@ -35,31 +35,34 @@ When(/^the user clicks the Login button$/, async function () {
 When(
   "the user clicks on the add to cart button of  the first product",
   async function () {
-    await sauceLabCartPage.ClickFirstProduct();
+    await sauceLabHomePage.ClickFirstProduct();
   }
 );
 When(
   /^the user clicks on the add to cart button of  the second product$/,
   async function () {
-    await sauceLabCartPage.ClickSecondProduct();
+    await sauceLabHomePage.ClickSecondProduct();
   }
 );
+When("the shopping cart icon increment.", async function () {
+  expect(await sauceLabHomePage.shoppingCartBadge.getText()).toEqual("2");
+});
 
 //products not added to shopping cart
 When("the user clicks to add the first product", async function () {
-  await sauceLabCartPage.ClickFirstProduct();
-  await sauceLabCartPage.ClickDeleteProduct1();
+  await sauceLabHomePage.ClickFirstProduct();
+  await sauceLabHomePage.ClickDeleteProduct1();
 });
 When(/^the user clicks to add the second product$/, async function () {
-  await sauceLabCartPage.ClickSecondProduct();
-  await sauceLabCartPage.ClickDeleteProduct2();
+  await sauceLabHomePage.ClickSecondProduct();
+  await sauceLabHomePage.ClickDeleteProduct2();
 });
 
 //checkout
 When("the user clicks the checkout button", async function () {
+  await sauceLabHomePage.validateProductsAreAdded();
   await sauceLabCheckoutPage.ChechOutButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickCheckoutButton();
-  
 });
 
 When(
@@ -67,7 +70,6 @@ When(
   async function (firstname) {
     await sauceLabCheckoutPage.firstname.waitForDisplayed();
     await sauceLabCheckoutPage.SetFirstname(firstname);
-    // await browser.pause(2000)
   }
 );
 
@@ -76,7 +78,6 @@ When(
   async function (lastname) {
     await sauceLabCheckoutPage.lastname.waitForDisplayed();
     await sauceLabCheckoutPage.SetLasttname(lastname);
-    // await browser.pause(2000)
   }
 );
 
@@ -85,16 +86,13 @@ When(
   async function (postalcode) {
     await sauceLabCheckoutPage.postalCode.waitForDisplayed();
     await sauceLabCheckoutPage.SetPostalCode(postalcode);
-    // await browser.pause(2000)
   }
 );
 When("the user clicks on continue button", async function () {
   await sauceLabCheckoutPage.continueButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickContinueButton();
-  // await browser.pause(2000)
 });
 When("the user clicks on finish button", async function () {
   await sauceLabCheckoutPage.finishButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickfinishButton();
-  // await browser.pause(2000)
 });
