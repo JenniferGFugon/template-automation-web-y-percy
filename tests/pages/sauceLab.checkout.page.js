@@ -93,18 +93,19 @@ class SauceLabCheckoutPage extends Page {
     await this.continueButton.waitForClickable();
     await this.continueButton.click();
   }
+
   async ClickfinishButton() {
     //check the user is on the correct page
     expect(browser).toHaveUrl(
       "https://www.saucedemo.com/checkout-step-two.html"
     );
-    //assertion to check the payment information
+    //check the payment information
     expect(await this.paymentInformation.getText()).toEqual("SauceCard #31337");
-    //assertion to check the shipping information
+    // the shipping information
     expect(await this.shippingInformation.getText()).toEqual(
       "FREE PONY EXPRESS DELIVERY!"
     );
-    //assertion to check that the subtotal of the products matches the sum of
+    // check that the subtotal of the products matches the sum of
     // the product prices
     expect(await this.getSubTotal()).toEqual(await this.sumPrices());
 
@@ -119,11 +120,19 @@ class SauceLabCheckoutPage extends Page {
     await this.finishButton.click();
   }
 
+  /**
+   *Function to get the product price
+   * @param {number} index
+   * @return the product price
+   */
   async getPrice(index) {
     (await this.price(index)).waitForDisplayed();
     return (await this.price(index)).getText();
   }
-
+  /**
+   *Function add the product prices
+   * @return the prices sum
+   */
   async sumPrices() {
     let num1 = await this.getPrice(3);
     let num2 = await this.getPrice(4);
@@ -132,7 +141,10 @@ class SauceLabCheckoutPage extends Page {
     let suma = parseFloat(price1) + parseFloat(price2);
     return suma;
   }
-
+  /**
+   *Function to calculate the tax
+   * @return the tax
+   */
   async tax() {
     let total = await this.getSubTotal();
     let tax = total * 0.08;
@@ -140,24 +152,44 @@ class SauceLabCheckoutPage extends Page {
     return parseFloat(tax.toFixed(1));
   }
 
+  /**
+   *Function to get the subtotal from the order summary
+   * @return the order subtotal
+   */
   async getSubTotal() {
     let total = await this.itemTotal.getText();
     total = total.replace("Item total: $", "");
     total = parseFloat(total);
     return total;
   }
+
+  /**
+   *Function to get the tax from the order summary
+   * @return the tax
+   */
   async getTaxes() {
     let total = await this.taxLabel.getText();
     total = total.replace("Tax: $", "");
     total = parseFloat(total);
     return total;
   }
+
+  /**
+   *Function to get the total purchase from the order summary
+   * @return the total purchase
+   */
   async getTotalPurchase() {
     let total = await this.totalPurchase.getText();
     total = total.replace("Item total: $", "");
     total = parseFloat(total);
     return total;
   }
+
+  /**
+   *Function to add subtotal and taxes and verify if the
+   *amount is correct
+   * @return the total purchase
+   */
   async sumTotalAndTaxes() {
     const subtotal = await this.getTotalPurchase();
     const taxes = await this.getTaxes();

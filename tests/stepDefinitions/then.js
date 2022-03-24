@@ -53,19 +53,22 @@ Then(
 //add products to shopping cart
 
 Then("the product is added to  the shopping cart", async function () {
+  //validate if the product is added to the shopping cart
+  //when a product is added the button change the value from "Add to cart" from "Remove"
   expect(await sauceLabCheckoutPage.removeProduct1).toHaveText("REMOVE");
   expect(await sauceLabCheckoutPage.removeProduct2).toHaveText("REMOVE");
   await sauceLabHomePage.ResetApp();
 });
 
 Then("the product is not added to the shopping cart", async function () {
+  //validate if the product is not added to the shopping cart
+  //when a product is not added the button doesn't change the value
   expect(await sauceLabCheckoutPage.product1).toHaveText("ADD TO CART");
   expect(await sauceLabCheckoutPage.product2).toHaveText("ADD TO CART");
 });
 
 //checkout
-
 Then("the user  should see {string} message", async function (behavior) {
+  //if the user finalizes the purchase , he should see the message "CHECKOUT: COMPLETE!"
   expect(await sauceLabCheckoutPage.spanTitle).toHaveText(behavior);
-  // await browser.pause(2000)
 });

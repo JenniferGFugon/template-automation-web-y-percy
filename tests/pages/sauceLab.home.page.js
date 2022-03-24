@@ -61,11 +61,15 @@ class SauceLabHomePage extends Page {
     expect(this.hamburguerMenu).toBeDisplayed();
     expect(this.shoppingCartButton).toBeDisplayed();
   }
+
+  /**
+   *Function to log out the sauce page
+   */
   async doLogout() {
     await this.hamburguerMenuLogoutButton.waitForClickable();
     await this.hamburguerMenuLogoutButton.click();
   }
-  //products to add to the shopping cart
+  //add products to  the shopping cart
   async ClickFirstProduct() {
     await this.product1.waitForClickable();
     await this.product1.click();
@@ -82,22 +86,29 @@ class SauceLabHomePage extends Page {
     await this.removeProduct2.waitForClickable();
     await this.removeProduct2.click();
   }
-  async SetSpamBadge() {
-    await this.shoppingCartBadge.setValue(0);
-  }
+
+  /**
+   *Function to reset the app state
+   */
   async ResetApp() {
     await this.hamburguerMenu.waitForDisplayed();
     await this.hamburguerMenu.click();
     await this.resetButton.waitForClickable();
     await this.resetButton.click();
   }
+
+  /**
+   *Function to add products to shopping cart
+   */
   async AddProducts() {
     await this.product1.waitForClickable();
     await this.ClickFirstProduct();
     await this.product2.waitForClickable();
     await this.ClickSecondProduct();
   }
-
+  /**
+   *Function to validate that the products are added to the shopping cart
+   */
   async validateProductsAreAdded() {
     expect(await this.shoppingCartBadge.getText()).toEqual("2");
   }

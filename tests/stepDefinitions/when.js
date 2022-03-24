@@ -45,22 +45,28 @@ When(
   }
 );
 When("the shopping cart icon increment.", async function () {
+  //Verify that the shopping cart icon shows the product quantity
   expect(await sauceLabHomePage.shoppingCartBadge.getText()).toEqual("2");
 });
 
 //products not added to shopping cart
 When("the user clicks to add the first product", async function () {
+  //add first product to shopping cart
   await sauceLabHomePage.ClickFirstProduct();
+  //remove the product added before to simulate the add product function doesn't work
   await sauceLabHomePage.ClickDeleteProduct1();
 });
 When(/^the user clicks to add the second product$/, async function () {
+  //add second product to shopping cart
   await sauceLabHomePage.ClickSecondProduct();
+  //remove the product added before to simulate the add product function doesn't work
   await sauceLabHomePage.ClickDeleteProduct2();
 });
 
 //checkout
 When("the user clicks the checkout button", async function () {
   //Click the checkout button
+  //the validations are on ClickCheckoutButton function
   await sauceLabCheckoutPage.ChechOutButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickCheckoutButton();
 });
@@ -68,6 +74,7 @@ When("the user clicks the checkout button", async function () {
 When(
   "the user types {string} in the the firstname input",
   async function (firstname) {
+    //type firstname
     await sauceLabCheckoutPage.firstname.waitForDisplayed();
     await sauceLabCheckoutPage.SetFirstname(firstname);
   }
@@ -76,6 +83,7 @@ When(
 When(
   "the user types {string} in the the lastname input",
   async function (lastname) {
+    //type lastname
     await sauceLabCheckoutPage.lastname.waitForDisplayed();
     await sauceLabCheckoutPage.SetLasttname(lastname);
   }
@@ -84,6 +92,7 @@ When(
 When(
   "the user types {string} in the the postal code input",
   async function (postalcode) {
+    //type postal code
     await sauceLabCheckoutPage.postalCode.waitForDisplayed();
     await sauceLabCheckoutPage.SetPostalCode(postalcode);
   }
@@ -96,6 +105,8 @@ When("the user clicks on continue button", async function () {
   await sauceLabCheckoutPage.ClickContinueButton();
 });
 When("the user clicks on finish button", async function () {
+  //validations are  on ClickfinishButton function
+  //click finish button to finalize the order
   await sauceLabCheckoutPage.finishButton.waitForDisplayed();
   await sauceLabCheckoutPage.ClickfinishButton();
 });

@@ -29,11 +29,17 @@ class SauceLabLoginPage extends Page {
     await this.passwordInput.setValue(password);
   }
 
+  /**
+   *Function to log in on the sauce page
+   */
   async Login() {
+    //Type the username
     await this.usernameInput.waitForDisplayed();
     await this.SetUsername("standard_user");
+    //Type the password
     await this.passwordInput.waitForDisplayed();
     await this.SetPassword("secret_sauce");
+    //click login button
     await this.loginButton.waitForClickable();
     await this.loginButton.click();
   }
