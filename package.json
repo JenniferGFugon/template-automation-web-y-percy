@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@wdio/codemod": "^0.10.1",
+    "geckodriver": "^3.0.2",
     "jscodeshift": "^0.13.1"
   }
 }
