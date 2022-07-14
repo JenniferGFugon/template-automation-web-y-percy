@@ -35,6 +35,10 @@ Given("a user at {string} login page", async function (websiteName) {
     await sauceLabLoginPage.loginButton.waitForClickable();
   }
 });
+// Google website
+//Contador para verificar cuantas veces se entra al step
+//ya que percy snapshots da error al ejecutar dos veces el
+//mismo snapshot o con nombres iguales
 
 Given("a user at {string} home page", async function (websiteName) {
   //open base url
