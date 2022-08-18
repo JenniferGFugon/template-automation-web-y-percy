@@ -2,7 +2,9 @@ const { Given } = require("@cucumber/cucumber");
 const googlePage = require("../pages/google.page.js");
 const sauceLabLoginPage = require("../pages/sauceLab.login.page.js");
 const sauceLabHomePage = require("../pages/sauceLab.home.page.js");
+
 const percySnapshot = require("@percy/webdriverio");
+
 //Establecer contador para ver las veces que se ejecuta el step
 //ya que si no percy da un error:
 //" Error: The name of each snapshot must be unique, and this name already exists in the build"
