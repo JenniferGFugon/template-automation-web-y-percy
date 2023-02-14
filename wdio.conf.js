@@ -58,7 +58,6 @@ exports.config = {
     //},
      {
          // maxInstances: 5,
-         browserName: 'firefox',
          browserName: "firefox",
      "moz:firefoxOptions": {
        args: ["-headless"],
