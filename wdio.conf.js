@@ -61,7 +61,7 @@ exports.config = {
          browserName: "firefox",
      "moz:firefoxOptions": {
        args: ["-headless"],
-       binary: 'C:/Program Files/Firefox Nightly'
+       binary: 'C:/Program Files/Firefox Nightly/frefox.exe'
      },
 
      },
