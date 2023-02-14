@@ -50,25 +50,15 @@ exports.config = {
   // https://docs.saucelabs.com/reference/platforms-configurator
   //
   capabilities: [
-    //{
-      // maxInstances: 5,
-      //browserName: "chrome",
-      //acceptInsecureCerts: true,
-      
-    //},
-     {
-         // maxInstances: 5,
-         browserName: "firefox",
-     "moz:firefoxOptions": {
-       args: ["-headless"],
-     },
-
-     },
-    // {
-    //     // maxInstances: 5,
-    //     browserName: 'safari',
-    // }
+    {
+      maxInstances: 5,
+      browserName: "firefox",
+      "moz:firefoxOptions": {
+        args: ["-headless"],
+      },
+    },
   ],
+ 
   //
   // ===================
   // Test Configurations
