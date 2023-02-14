@@ -290,4 +290,15 @@ exports.config = {
    */
   //onReload: function(oldSessionId, newSessionId) {
   //}
-};
+  onPrepare() {
+    require("geckodriver").start();
+  },
+ 
+  onComplete() {
+    require("geckodriver").stop();
+  },
+ };
+ 
+
+
+
