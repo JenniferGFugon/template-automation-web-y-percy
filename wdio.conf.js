@@ -55,7 +55,7 @@ exports.config = {
       browserName: "firefox",
       "moz:firefoxOptions": {
         args: ["-headless"],
-        binary: 'C:/ProgramData/Microsoft/Windows/Start Menu/Programs'
+        binary: 'C:/Program Files/Mozilla Firefox/firefox.exe'
       },
     },
   ],
