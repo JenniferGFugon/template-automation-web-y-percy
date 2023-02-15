@@ -19,7 +19,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
-  specs: ["./tests/features/*.feature"],
+  specs: ["./tests/features/home.feature"],
 
   // Patterns to exclude.
   exclude: [
@@ -50,12 +50,16 @@ exports.config = {
   // https://docs.saucelabs.com/reference/platforms-configurator
   //
   capabilities: [
+    /*{
+      maxInstances: 5,
+      browserName: "chrome",
+    },*/
     {
       maxInstances: 5,
       browserName: "firefox",
       "moz:firefoxOptions": {
         args: ["-headless"],
-        binary: 'C:/Program Files/Mozilla Firefox/firefox.exe'
+        binary: 'C:/Program Files/Firefox Nightly/firefox.exe',
       },
     },
   ],
@@ -285,13 +289,16 @@ exports.config = {
    */
   //onReload: function(oldSessionId, newSessionId) {
   //}
+
+
+  /*
   onPrepare() {
     require("geckodriver").start();
   },
  
   onComplete() {
     require("geckodriver").stop();
-  },
+  },*/
  };
  
 
