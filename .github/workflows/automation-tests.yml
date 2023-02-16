@@ -21,3 +21,5 @@ jobs:
           custom-command: "npm test"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          BS_USER: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
