@@ -103,7 +103,7 @@ class SauceLabCheckoutPage extends Page {
     expect(await this.paymentInformation.getText()).toEqual("SauceCard #31337");
     // the shipping information
     expect(await this.shippingInformation.getText()).toEqual(
-      "FREE PONY EXPRESS DELIVERY!"
+      "Free Pony Express Delivery!"
     );
     // check that the subtotal of the products matches the sum of
     // the product prices
