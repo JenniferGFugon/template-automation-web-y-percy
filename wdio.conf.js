@@ -247,14 +247,14 @@ exports.config = {
   //}
 
 
-  
+  /*
   onPrepare() {
     require("geckodriver").start();
   },
  
   onComplete() {
     require("geckodriver").stop();
-  },
+  },*/
  };
  
 
