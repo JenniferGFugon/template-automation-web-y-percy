@@ -13,7 +13,7 @@ Feature: Cart Test
         And the user types "12111" in the the postal code input
         And the user clicks on continue button
         And the user clicks on finish button
-        Then the user  should see "CHECKOUT: COMPLETE!" message 
+        Then the user  should see "Checkout: Your Information" message 
 
     
     Scenario:The postal code is missing in the checkout-SP
