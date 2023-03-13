@@ -10,16 +10,31 @@ exports.config = {
   maxInstances: 5,
 
   maxInstancesPerCapability: 1,
+  //
   
   capabilities: [
     {
-      // maxInstances: 5,
+      maxInstances: 5,
       browserName: "chrome",
-      acceptInsecureCerts: true,
     },
-  
+   /* {
+      maxInstances: 5,
+      browserName: "firefox",
+      "moz:firefoxOptions": {
+        args: ["-headless"],
+        binary: 'C:/Program Files/Firefox Nightly/firefox.exe',
+      },
+    },*/
   ],
   
+ 
+  //
+  // ===================
+  // Test Configurations
+  // ===================
+  // Define all options that are relevant for the WebdriverIO instance here
+  //
+  // Level of logging verbosity: trace | debug | info | warn | error | silent
   logLevel: "error",
 
   bail: 0,
@@ -33,6 +48,22 @@ exports.config = {
   specFileRetries: 0,
   // Whether or not retried specfiles should be retried immediately or deferred to the end of the queue
   specFileRetriesDeferred: false,
+  //
+  // Test runner services
+  // Services take over a specific job you don't want to take care of. They enhance
+  // your test setup with almost no effort. Unlike plugins, they don't add new
+  // commands. Instead, they hook themselves up into the test process.
+  services:[ 
+    //["chromedriver"],
+  ["browserstack"]],
+  host:'hub.browserstack.com',
+  path:'/wd/hub',
+  // Framework you want to run your specs with.
+  // The following are supported: Mocha, Jasmine, and Cucumber
+  // see also: https://webdriver.io/docs/frameworks.html
+  //
+  // Make sure you have the wdio adapter package for the specific framework installed
+  // before running any tests.
 
   services: ["chromedriver"],
   framework: "cucumber",
@@ -212,4 +243,18 @@ exports.config = {
    */
   //onReload: function(oldSessionId, newSessionId) {
   //}
-};
+
+
+  /*
+  onPrepare() {
+    require("geckodriver").start();
+  },
+ 
+  onComplete() {
+    require("geckodriver").stop();
+  },*/
+ };
+ 
+
+
+

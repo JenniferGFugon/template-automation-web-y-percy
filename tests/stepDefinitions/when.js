@@ -5,9 +5,6 @@ const sauceLabCheckoutPage = require("../pages/sauceLab.checkout.page");
 const sauceLabHomePage = require("../pages/sauceLab.home.page.js");
 let sumProducts = 0;
 // Google website
-When(/^the page loads$/, async function () {
-  await googlePage.SearchInput.waitForDisplayed();
-});
 
 When("the user type {string}", async function (keyword) {
   await googlePage.SearchText(keyword);
