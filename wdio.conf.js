@@ -15,18 +15,18 @@ exports.config = {
   //
   
   capabilities: [
-    {
+    /*{
       maxInstances: 5,
       browserName: "chrome",
-    },
-    /*{
+    },*/
+    {
       maxInstances: 5,
       browserName: "firefox",
       "moz:firefoxOptions": {
         args: ["-headless"],
         binary: 'C:/Program Files/Firefox Nightly/firefox.exe',
       },
-    },*/
+    },
   ],
   
  
