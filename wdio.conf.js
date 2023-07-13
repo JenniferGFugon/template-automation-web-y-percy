@@ -2,7 +2,7 @@ exports.config = {
   user: process.env.BROWSERSTACK_USERNAME,
   key: process.env.BROWSERSTACK_ACCESS_KEY,
   runner: "local",
-  specs: ["./tests/features/*cart.feature"],
+  specs: ["./tests/features/home.feature"],
 
   // Patterns to exclude.
   exclude: [
@@ -15,18 +15,18 @@ exports.config = {
   //
   
   capabilities: [
-    /*{
+    {
       maxInstances: 5,
       browserName: "chrome",
-    },*/
-    {
+    },
+    /*{
       maxInstances: 5,
       browserName: "firefox",
       "moz:firefoxOptions": {
         args: ["-headless"],
         binary: 'C:/Program Files/Firefox Nightly/firefox.exe',
       },
-    },
+    },*/
   ],
   
  
