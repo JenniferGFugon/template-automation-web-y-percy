@@ -6,9 +6,7 @@ class GooglePage extends Page {
   get loginButton() {
     return $("#loginButton");
   }
-  get EmailInput() {
-    return $("#email-input");
-  }
+
   get PasswordInput() {
     return $("#password-input");
   }
